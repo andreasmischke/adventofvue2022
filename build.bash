@@ -4,6 +4,7 @@ indexFile="./docs/index.html"
 directories="$(ls -1 ./ | grep -e '^\d\d')"
 
 echo "---" > $indexFile
+echo "layout: default" >> $indexFile
 echo "days:" >> $indexFile
 
 for dir in $directories; do
