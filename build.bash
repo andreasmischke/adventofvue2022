@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 indexFile="./docs/index.html"
-directories="$(ls -1 ./ | grep -e '^\d\d')"
+directories="$(ls -1 ./ | grep -P '^\d\d')"
 
 echo "---" > $indexFile
 echo "layout: default" >> $indexFile
