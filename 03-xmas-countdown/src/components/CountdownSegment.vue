@@ -4,10 +4,13 @@ defineProps({
   number: Number,
 })
 </script>
+
 <template>
   <div class="segment text-center">
     <div class="pt-10 overflow-hidden relative">
-      <span :key="number" class="numbers text-green absolute top-0 left-[50%]">{{ number }}</span>
+      <Transition>
+        <span :key="number" class="numbers text-green absolute top-0 left-[50%]">{{ number }}</span>
+      </Transition>
     </div>
 
     <span class="label block pt-2">{{ label }}</span>
@@ -17,11 +20,27 @@ defineProps({
 .segment {
   width: 80px;
 }
+
 .numbers {
   transform: translateX(-50%);
   font-size: 32px;
 }
+
 .label {
   font-size: 16px;
+}
+
+.v-enter-active,
+.v-leave-active {
+  transition: transform 0.5s ease, opacity 0.3s ease;
+}
+
+.v-enter-from {
+  opacity: 0;
+  transform: translate(-50%) scale(1%);
+}
+.v-leave-to {
+  opacity: 0;
+  transform: translate(-50%) scale(300%);
 }
 </style>
